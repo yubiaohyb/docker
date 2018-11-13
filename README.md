@@ -1,4 +1,5 @@
 卸载老版本docker
+```
 [vagrant@localhost ~]$  sudo yum remove docker \
 >                   docker-client \
 >                   docker-client-latest \
@@ -22,8 +23,9 @@ No Match for argument: docker-engine-selinux
 No Match for argument: docker-engine
 No Packages marked for removal
 [vagrant@localhost ~]$
-
+```
 安装组件包
+```
 [vagrant@localhost ~]$ sudo yum install -y yum-utils \
 >   device-mapper-persistent-data \
 >   lvm2
@@ -127,8 +129,9 @@ Dependency Installed:
 
 Complete!
 [vagrant@localhost ~]$
-
+```
 添加docker稳定版本库
+```
 [vagrant@localhost ~]$ sudo yum-config-manager \
 >     --add-repo \
 >     https://download.docker.com/linux/centos/docker-ce.repo
@@ -136,9 +139,10 @@ Loaded plugins: fastestmirror
 adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
 grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
 repo saved to /etc/yum.repos.d/docker-ce.repo
-
+```
 
 查看所有可装版本
+```
 [vagrant@localhost ~]$ yum list docker-ce --showduplicates | sort -r
 
  * updates: mirrors.cn99.com
@@ -278,20 +282,23 @@ Dependency Installed:
 
 Complete!
 [vagrant@localhost ~]$
-
+```
 安装指定版本docker
+```
 $ sudo yum install docker-ce-<VERSION STRING>
-
+``
 
 启动docker
+```
 [vagrant@localhost ~]$ sudo systemctl start docker
 [vagrant@localhost ~]$ ps ax | grep docker
  2782 ?        Ssl    0:00 /usr/bin/dockerd -H unix://
  2796 ?        Ssl    0:00 containerd --config /var/run/docker/containerd/containerd.toml --log-level info
  2942 pts/0    S+     0:00 grep --color=auto docker
 [vagrant@localhost ~]$
-
+```
 docker运行实例镜像
+```
 [vagrant@localhost ~]$ sudo docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -319,9 +326,10 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
-
+```
 
 docker运行实例镜像
+```
 [vagrant@localhost ~]$ sudo docker run -it ubuntu bash
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
@@ -347,14 +355,15 @@ root@e92bbf2bf6e9:/# cat /etc/issue
 Ubuntu 18.04.1 LTS \n \l
 
 root@e92bbf2bf6e9:/#
-
+```
 docker的卸载
+```
 1/卸载程序包
 sudo yum remove docker-ce
 2/删除相关文件
 sudo rm -rf /var/lib/docker
-
-
+```
+```
 [vagrant@localhost ~]$ docker version
 Client:
  Version:           18.09.0
@@ -366,7 +375,8 @@ Client:
  Experimental:      false
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/version: dial unix /var/run/docker.sock: connect: permission denied
 [vagrant@localhost ~]$
-
+```
+```
 [vagrant@localhost ~]$ sudo docker version
 Client:
  Version:           18.09.0
@@ -387,14 +397,14 @@ Server: Docker Engine - Community
   OS/Arch:          linux/amd64
   Experimental:     false
 [vagrant@localhost ~]$
-
-
+```
+```
 [vagrant@localhost ~]$ docker-machine version
 -bash: docker-machine: command not found
-
-解决办法
-https://github.com/docker/machine/releases
-
+```
+解决办法<br>
+https://github.com/docker/machine/releases<br>
+```
 curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
     chmod +x /tmp/docker-machine &&
     sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
@@ -402,4 +412,5 @@ curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machi
 [vagrant@localhost ~]$ docker-machine -v
 docker-machine version 0.16.0, build 702c267f
 [vagrant@localhost ~]$
+```
 
