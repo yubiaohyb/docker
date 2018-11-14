@@ -492,6 +492,17 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 yubiaohyb/sayhi     latest              2b84f6b4e970        3 minutes ago       861kB
 ubuntu              14.04               f216cfb59484        3 weeks ago         188MB
 hello-world         latest              4ab4c602aa5e        2 months ago        1.84kB
+[vagrant@localhost sayhi]$ docker run yubiaohyb/sayhi
+Hi!
+[vagrant@localhost sayhi]$ ls -lh
+total 852K
+-rw-rw-r--. 1 vagrant vagrant   40 Nov 14 11:27 Dockerfile
+-rwxrwxr-x. 1 vagrant vagrant 841K Nov 14 11:25 sayhi
+-rw-rw-r--. 1 vagrant vagrant   50 Nov 14 11:08 sayhi.c
+[vagrant@localhost sayhi]$ docker history 2b84f6b4e970
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+2b84f6b4e970        12 minutes ago      /bin/sh -c #(nop)  CMD ["/sayhi"]               0B
+1a380afb9d12        12 minutes ago      /bin/sh -c #(nop) ADD file:ed2d8976b0c808c2b…   861kB
 [vagrant@localhost sayhi]$
 [vagrant@localhost sayhi]$ docker run yubiaohyb/sayhi
 Hi!
