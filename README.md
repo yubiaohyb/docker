@@ -434,3 +434,66 @@ Digest: sha256:e6e808ab8c62f1d9181817aea804ae4ba0897b8bd3661d36dbc329b5851b5637
 Status: Downloaded newer image for ubuntu:14.04
 [vagrant@localhost ~]$
 ```
+添加用户到docker分组下
+```
+[vagrant@localhost ~]$ docker image ls
+
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/images/json: dial unix /var/run/docker.sock: connect: permission denied
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$ docker image ls
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/images/json: dial unix /var/run/docker.sock: connect: permission denied
+[vagrant@localhost ~]$ sudo groupadd docker
+groupadd: group 'docker' already exists
+[vagrant@localhost ~]$ sudo gpasswd -a vagrant docker
+Adding user vagrant to group docker
+[vagrant@localhost ~]$ docker image ls
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/images/json: dial unix /var/run/docker.sock: connect: permission denied
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$ sudo service docker restart
+Redirecting to /bin/systemctl restart docker.service
+[vagrant@localhost ~]$ docker image ls
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/images/json: dial unix /var/run/docker.sock: connect: permission denied
+[vagrant@localhost ~]$ exit
+```
+自定义基本镜像
+```
+[vagrant@localhost sayhi]$ cat sayhi.c
+#include<stdio.h>
+int main(){
+        printf("Hi!\n");
+}
+[vagrant@localhost sayhi]$
+[vagrant@localhost sayhi]$ gcc -static sayhi.c -o sayhi
+[vagrant@localhost sayhi]$ ls
+sayhi  sayhi.c
+[vagrant@localhost sayhi]$ ./sayhi
+Hi!
+[vagrant@localhost sayhi]$ cat Dockerfile
+FROM scratch
+ADD sayhi /
+CMD ["/sayhi"]
+[vagrant@localhost sayhi]$
+[vagrant@localhost sayhi]$ docker build -t yubiaohyb/sayhi .
+Sending build context to Docker daemon  864.8kB
+Step 1/3 : FROM scratch
+ --->
+Step 2/3 : ADD sayhi /
+ ---> 1a380afb9d12
+Step 3/3 : CMD ["/sayhi"]
+ ---> Running in 8a31a66738e4
+Removing intermediate container 8a31a66738e4
+ ---> 2b84f6b4e970
+Successfully built 2b84f6b4e970
+Successfully tagged yubiaohyb/sayhi:latest
+[vagrant@localhost sayhi]$ docker image ls
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+yubiaohyb/sayhi     latest              2b84f6b4e970        3 minutes ago       861kB
+ubuntu              14.04               f216cfb59484        3 weeks ago         188MB
+hello-world         latest              4ab4c602aa5e        2 months ago        1.84kB
+[vagrant@localhost sayhi]$
+[vagrant@localhost sayhi]$ docker run yubiaohyb/sayhi
+Hi!
+[vagrant@localhost sayhi]$
+```
