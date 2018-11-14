@@ -286,7 +286,7 @@ Complete!
 安装指定版本docker
 ```
 $ sudo yum install docker-ce-<VERSION STRING>
-``
+```
 
 启动docker
 ```
@@ -413,4 +413,24 @@ curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machi
 docker-machine version 0.16.0, build 702c267f
 [vagrant@localhost ~]$
 ```
+查看服务器上所有镜像
+```
+[vagrant@localhost ~]$ sudo docker image ls
 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              4ab4c602aa5e        2 months ago        1.84kB
+```
+docker获取镜像的三种方式：
+1-通过dockerfile构建；
+2-通过registry拉取：
+```
+[vagrant@localhost ~]$ sudo docker pull ubuntu:14.04
+14.04: Pulling from library/ubuntu
+027274c8e111: Pull complete
+d3f9339a1359: Pull complete
+872f75707cf4: Pull complete
+dd5eed9f50d5: Pull complete
+Digest: sha256:e6e808ab8c62f1d9181817aea804ae4ba0897b8bd3661d36dbc329b5851b5637
+Status: Downloaded newer image for ubuntu:14.04
+[vagrant@localhost ~]$
+```
