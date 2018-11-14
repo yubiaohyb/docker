@@ -513,3 +513,12 @@ gcc环境安装
 yum groupinstall "Development Tools"
 yum install -y glibc-static
 ```
+查看yum已安装列表
+```
+[vagrant@localhost sayhi]$ yum list installed | grep gcc
+gcc.x86_64                           4.8.5-28.el7_5.1          @updates
+gcc-c++.x86_64                       4.8.5-28.el7_5.1          @updates
+gcc-gfortran.x86_64                  4.8.5-28.el7_5.1          @updates
+libgcc.x86_64                        4.8.5-28.el7_5.1          @koji-override-1
+[vagrant@localhost sayhi]$
+```
