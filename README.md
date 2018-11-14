@@ -508,3 +508,7 @@ IMAGE               CREATED             CREATED BY                              
 Hi!
 [vagrant@localhost sayhi]$
 ```
+gcc环境安装
+```
+yum groupinstall "Development Tools"
+yum install -y glibc-static
