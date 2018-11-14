@@ -522,3 +522,36 @@ gcc-gfortran.x86_64                  4.8.5-28.el7_5.1          @updates
 libgcc.x86_64                        4.8.5-28.el7_5.1          @koji-override-1
 [vagrant@localhost sayhi]$
 ```
+查看容器
+```
+[vagrant@localhost sayhi]$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[vagrant@localhost sayhi]$ docker container  ls -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
+de1b83225feb        yubiaohyb/sayhi     "/sayhi"            18 minutes ago      Exited (4) 18 minutes ago                       affectionate_archimedes
+9cd71337bed6        hello-world         "/hello"            2 hours ago         Exited (0) 2 hours ago                          relaxed_blackburn
+[vagrant@localhost sayhi]$
+```
+交互式运行容器
+```
+[vagrant@localhost sayhi]$ docker run ubuntu
+[vagrant@localhost sayhi]$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[vagrant@localhost sayhi]$ docker run -it ubuntu
+root@788d2b733964:/# pwd
+/
+root@788d2b733964:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@788d2b733964:/#
+root@788d2b733964:/#
+root@788d2b733964:/#
+root@788d2b733964:/# touch test.txt
+root@788d2b733964:/# cat test.txt
+root@788d2b733964:/# exist
+bash: exist: command not found
+root@788d2b733964:/# exit
+exit
+[vagrant@localhost sayhi]$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[vagrant@localhost sayhi]$
+```
