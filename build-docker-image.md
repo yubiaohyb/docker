@@ -161,3 +161,22 @@ Successfully built 1c9ef8ec94a9
 Successfully tagged yubiaohyb/centos-vim-new:latest
 [vagrant@localhost centos-vim-new]$
 ```
+对比原镜像与新构建的镜像：
+```
+[vagrant@localhost centos-vim-new]$ docker images
+REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
+yubiaohyb/centos-vim-new   latest              1c9ef8ec94a9        4 minutes ago       355MB
+yubiaohyb/centos-vim       init                c7e5473d14f3        45 minutes ago      355MB
+yubiaohyb/sayhi            latest              2b84f6b4e970        2 hours ago         861kB
+ubuntu                     14.04               f216cfb59484        3 weeks ago         188MB
+ubuntu                     latest              ea4c82dcd15a        3 weeks ago         85.8MB
+centos                     latest              75835a67d134        5 weeks ago         200MB
+hello-world                latest              4ab4c602aa5e        2 months ago        1.84kB
+[vagrant@localhost centos-vim-new]$ docker history 1c9ef8ec94a9
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+1c9ef8ec94a9        4 minutes ago       /bin/sh -c yum install -y vim                   155MB
+75835a67d134        5 weeks ago         /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B
+<missing>           5 weeks ago         /bin/sh -c #(nop)  LABEL org.label-schema.sc…   0B
+<missing>           5 weeks ago         /bin/sh -c #(nop) ADD file:fbe9badfd2790f074…   200MB
+[vagrant@localhost centos-vim-new]$
+```
