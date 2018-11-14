@@ -512,3 +512,4 @@ gcc环境安装
 ```
 yum groupinstall "Development Tools"
 yum install -y glibc-static
+```
