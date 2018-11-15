@@ -1,4 +1,9 @@
-构建docker镜像
+## 构建docker镜像
+* [@从container实例构建](#从container实例构建)
+* [@根据Dockerfile构建](#根据dockerfile构建)
+
+
+### 从container实例构建
 ```
 [vagrant@localhost sayhi]$ docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                       PORTS
@@ -71,7 +76,7 @@ c7e5473d14f3        14 minutes ago      /bin/bash                               
 <missing>           5 weeks ago         /bin/sh -c #(nop) ADD file:fbe9badfd2790f074…   200MB
 [vagrant@localhost sayhi]$
 ```
-从Dockerfile构建：
+### 根据Dockerfile构建
 ```
 [vagrant@localhost centos-vim-new]$ vi Dockerfile
 [vagrant@localhost centos-vim-new]$ more D
