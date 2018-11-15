@@ -27,3 +27,12 @@ WORKDIR /test # 进入根目录下test子目录，如果没有则创建
 WORKDIR demo  # 进入当前目录下demo子目录
 ```
 > 使用WORKDIR，不要使用RUN cd；尽量使用绝对路径
+
+### 复制拷贝
+```
+ADD hello /
+ADD a.txt a/
+ADD b.tar.gz /test
+
+COPY a.txt /
+```
