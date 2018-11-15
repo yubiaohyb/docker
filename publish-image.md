@@ -21,7 +21,7 @@ latest: digest: sha256:cf00b74257e213692c0e2e2b9a0a1c7d119d1ef731309402a75f74bbe
 [vagrant@localhost sayhi]$
 ```
 结果如下：
-
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/CFCBEC92-BAFB-4f74-A978-8105E6621F6E.png)
 ---
 遇到的问题：
 ```
