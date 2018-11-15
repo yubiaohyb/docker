@@ -36,3 +36,4 @@ ADD b.tar.gz /test
 
 COPY a.txt /
 ```
+> 大部分情况下，优先使用COPY；ADD除了具备COPY的功能，还会尝试进行解压；添加远程目录或文件，使用curl或wget
