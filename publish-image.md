@@ -33,3 +33,20 @@ denied: requested access to the resource is denied
 解决：
 1-检查镜像命名，重新生成镜像文件；
 2-检查是否登陆，重新登陆
+
+关联github或者bitbucket账号
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/1448E9AA-061B-4461-B594-3163CE7E997F.png)
+添加关联账号结果
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/F05B1190-349A-487c-A1A5-1BB8192A5DFD.png)
+选择自动构建平台
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/C0494121-780D-4fa9-8D18-C30B28D157FA.png)
+指定自动创建更新镜像的库
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/7BC271EE-2767-482e-8651-CC9202E648F3.png)
+创建自动构建
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/9F39540F-D70F-4ff6-938D-BD02FDE438E7.png)
+
+
+搜索关键字 registry
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/787BE444-1A87-4c49-9E06-47EC8B00E0BC.png)
+
+
