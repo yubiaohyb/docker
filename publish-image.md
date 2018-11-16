@@ -37,8 +37,10 @@ de4d5d34729c: Preparing
 denied: requested access to the resource is denied
 ```
 解决：
+```
 1-检查镜像命名，重新生成镜像文件；
 2-检查是否登陆，重新登陆
+```
 
 ### 公共平台Dockerfile发布
 
@@ -61,5 +63,7 @@ denied: requested access to the resource is denied
 ## 镜像发布私有hub
 #### 搜索关键字 registry
 ![](https://github.com/yubiaohyb/docker/blob/master/images/publish/787BE444-1A87-4c49-9E06-47EC8B00E0BC.png)
+#### 查看快速安装
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/55688AF7-B869-4a3b-A0CD-F00309BA9CCB.png)
 
 
