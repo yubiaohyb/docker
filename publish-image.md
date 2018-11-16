@@ -1,7 +1,8 @@
-## 镜像发布dockerhub
-* ### [本地发布](#本地发布-1)
-* ### [公共平台Dockerfile发布](#公共平台dockerfile发布-1)
-## [镜像发布私有hub](#镜像发布私有hub-1)
+# 镜像发布
+* ## 镜像发布dockerhub
+  * ### [本地发布](#本地发布-1)
+  * ### [公共平台Dockerfile发布](#公共平台dockerfile发布-1)
+* ## [镜像发布私有hub](#镜像发布私有hub-1)
 ### 本地发布
 #### 本地登录账号
 ```
@@ -41,6 +42,8 @@ denied: requested access to the resource is denied
 
 ### 公共平台Dockerfile发布
 
+#### github新建repo，提交Dockerfile
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/6167A412-EB28-492f-8CB9-E58B80AA0F46.png)
 #### 创建自动构建
 ![](https://github.com/yubiaohyb/docker/blob/master/images/publish/9F39540F-D70F-4ff6-938D-BD02FDE438E7.png)
 #### 关联github或者bitbucket账号
@@ -51,7 +54,9 @@ denied: requested access to the resource is denied
 ![](https://github.com/yubiaohyb/docker/blob/master/images/publish/C0494121-780D-4fa9-8D18-C30B28D157FA.png)
 #### 指定自动创建更新镜像的库
 ![](https://github.com/yubiaohyb/docker/blob/master/images/publish/7BC271EE-2767-482e-8651-CC9202E648F3.png)
-
+#### 生成结果
+![](https://github.com/yubiaohyb/docker/blob/master/images/publish/5331CF43-56C2-40d7-8419-32B504D20F75.png)
+> 由于dockerhub是借助消息机制触发添加任务队列，所以相应的镜像发布时间要稍微长一些。
 
 ## 镜像发布私有hub
 #### 搜索关键字 registry
