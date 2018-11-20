@@ -6,7 +6,7 @@ docker的网络子系统采用了插件化设计，使用驱动可以进行设�
 #### 默认驱动分类
 type|desc
 ---|---
-[bridge](https://github.com/yubiaohyb/docker/blob/master/bridge-verify.md)|默认网络驱动，常用于需要通信的独立容器。
+bridge|默认网络驱动，常用于需要通信的独立容器。
 host|移除独立容器与docker宿主机之间的网络隔离，直接使用宿主机网络。
 overlay|连接多个docker守护进程，方便swarm服务通信。也可用于swarm与独立容器或两个不同docker守护进程的独立容器之间。避免了进行操作系统级的路由。
 macvlan|为容器分配mac地址，使之虚拟为网络上的一台物理设置。docker守护进程会根据mac地址进行路由。是解决历史程序直连网络的最佳选择，优于host。
