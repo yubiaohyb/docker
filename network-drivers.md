@@ -62,3 +62,115 @@ $ docker network disconnect my-net my-nginx
 ```
 $ systemctl reload docker
 ```
+检查重置配置
+```
+[vagrant@localhost ~]$ sudo  systemctl reload docker
+[vagrant@localhost ~]$ docker ls
+
+
+docker: 'ls' is not a docker command.
+See 'docker --help'
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$
+[vagrant@localhost ~]$ docker images
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+yubiaohyb/centos-vim   latest              061720069b26        4 hours ago         355MB
+yubiaohyb/sayhi        latest              b5f206fc59be        4 days ago          861kB
+[vagrant@localhost ~]$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+b5aa03158677        bridge              bridge              local
+98674bbeb131        host                host                local
+945c0b1351b7        none                null                local
+[vagrant@localhost ~]$ docker ps
+CONTAINER ID        IMAGE                  COMMAND             CREATED             STATUS              PORTS               NAMES
+72f3cc63e3af        yubiaohyb/centos-vim   "/bin/bash"         About an hour ago   Up About an hour                        test2
+736b639eb825        yubiaohyb/centos-vim   "/bin/bash"         About an hour ago   Up About an hour                        test1
+[vagrant@localhost ~]$ docker network create myBridge
+3143457bc95120e845a779393939661eea42a9526ba6b65695b7bd9dce323b71
+[vagrant@localhost ~]$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+b5aa03158677        bridge              bridge              local
+98674bbeb131        host                host                local
+3143457bc951        myBridge            bridge              local
+945c0b1351b7        none                null                local
+[vagrant@localhost ~]$ docker network inspect myBridge
+[
+    {
+        "Name": "myBridge",
+        "Id": "3143457bc95120e845a779393939661eea42a9526ba6b65695b7bd9dce323b71",
+        "Created": "2018-11-20T07:01:15.346627148Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+[vagrant@localhost ~]$ docker network connect  myBridge test1
+[vagrant@localhost ~]$ docker network connect  myBridge test2
+[vagrant@localhost ~]$ docker network inspect myBridge
+[
+    {
+        "Name": "myBridge",
+        "Id": "3143457bc95120e845a779393939661eea42a9526ba6b65695b7bd9dce323b71",
+        "Created": "2018-11-20T07:01:15.346627148Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "72f3cc63e3af9cc948ef419be52b44e9328c6df2d161b7e3e571c0d2af214a41": {
+                "Name": "test2",
+                "EndpointID": "c49333fd4adad1dd7ca63b752e76cd40d2e386ef2862b2a7c3f78438872f08c8",
+                "MacAddress": "02:42:ac:13:00:03",
+                "IPv4Address": "172.19.0.3/16",
+                "IPv6Address": ""
+            },
+            "736b639eb8257af24e2139f64f797c7d523160414a0ab7e5ffffe51a2202b919": {
+                "Name": "test1",
+                "EndpointID": "528fdede3499646b74870b1862d138809b30e7890beaaf903ab9459712894726",
+                "MacAddress": "02:42:ac:13:00:02",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+[vagrant@localhost ~]$
+```
