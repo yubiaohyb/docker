@@ -50,7 +50,7 @@ $ docker network connect my-net my-nginx
 $ docker network disconnect my-net my-nginx
 ```
 #### 开启容器外部请求转发
-默认连接默认桥网络的容器的请求无法被转发的外面，需要另外配置
+默认连接默认桥网络的容器的请求无法被转发的外面，需要另外配置<br>
 1 - 配置内核允许IP转发
 ```
 $ sysctl net.ipv4.conf.all.forwarding=1
@@ -59,6 +59,11 @@ $ sysctl net.ipv4.conf.all.forwarding=1
 ```
 $ sudo iptables -P FORWARD ACCEPT
 ```
+由于命令是临时性的，所以最好加入到启动脚本当中去。
+
+#### 默认桥的使用
+由于默认桥被认为有缺陷，所以不推荐使用。
+
 #### IPv6的使用
 ##### 启用ipv6
 目前只支持运行在linux系统上的docker守护进程<br>
