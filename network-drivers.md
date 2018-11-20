@@ -62,7 +62,7 @@ $ docker network disconnect my-net my-nginx
 ```
 $ systemctl reload docker
 ```
-检查重置配置
+错误配置
 ```
 [vagrant@localhost ~]$ sudo  systemctl reload docker
 [vagrant@localhost ~]$ docker ls
@@ -174,3 +174,46 @@ b5aa03158677        bridge              bridge              local
 ]
 [vagrant@localhost ~]$
 ```
+正确配置
+```
+[vagrant@localhost ~]$ docker network disconnect myBridge test1
+[vagrant@localhost ~]$ docker network disconnect myBridge test2
+[vagrant@localhost ~]$ docker network rm myBridge
+myBridge
+[vagrant@localhost ~]$ docker network create --ipv6 myBridge
+Error response from daemon: could not find an available, non-overlapping IPv6 address pool among the defaults to assign
+to the network
+[vagrant@localhost ~]$ docker network create --ipv6 myBridge --help
+
+Usage:  docker network create [OPTIONS] NETWORK
+
+Create a network
+
+Options:
+      --attachable           Enable manual container attachment
+      --aux-address map      Auxiliary IPv4 or IPv6 addresses used by Network driver (default map[])
+      --config-from string   The network from which copying the configuration
+      --config-only          Create a configuration only network
+  -d, --driver string        Driver to manage the Network (default "bridge")
+      --gateway strings      IPv4 or IPv6 Gateway for the master subnet
+      --ingress              Create swarm routing-mesh network
+      --internal             Restrict external access to the network
+      --ip-range strings     Allocate container ip from a sub-range
+      --ipam-driver string   IP Address Management Driver (default "default")
+      --ipam-opt map         Set IPAM driver specific options (default map[])
+      --ipv6                 Enable IPv6 networking
+      --label list           Set metadata on a network
+  -o, --opt map              Set driver specific options (default map[])
+      --scope string         Control the network's scope
+      --subnet strings       Subnet in CIDR format that represents a network segment
+[vagrant@localhost ~]$ sudo vi /etc/docker/daemon.json
+[vagrant@localhost ~]$ sudo systemctl reload docker
+{
+        "ipv6": true,
+        "fixed-cidr-v6": "2001:db8:1::/64"
+}
+[vagrant@localhost ~]$ docker network create --ipv6 myBridge
+Error response from daemon: could not find an available, non-overlapping IPv6 address pool among the defaults to assign to the network
+[vagrant@localhost ~]$
+```
+待解决。。。
