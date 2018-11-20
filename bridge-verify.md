@@ -1,11 +1,11 @@
 * 默认桥校验
-  * 启动配置
-  * 连通性测试
-  * 验证结果
-* 自建桥校验
-  * 启动配置
-  * 连通性测试
-  * 验证结果
+  * [启动配置](#启动配置)
+  * [连通性测试](#连通性测试)
+  * [验证结果](#验证结果)
+* [自建桥校验](#自建桥校验)
+  * [启动配置](#启动配置-1)
+  * [连通性测试](#连通性测试-1)
+  * [验证结果](#验证结果-1)
 
 ### 默认桥校验
 #### 启动配置
@@ -282,52 +282,6 @@ rtt min/avg/max/mdev = 0.120/0.120/0.120/0.000 ms
 ```
 宿主机：
 ```
-[vagrant@localhost ~]$ docker network inspect myBridge
-[
-    {
-        "Name": "myBridge",
-        "Id": "ffb207456d8fa8001f8862302463a9a6c4b1b594361d37b54644b9fab277bbed",
-        "Created": "2018-11-20T06:09:21.862359829Z",
-        "Scope": "local",
-        "Driver": "bridge",
-        "EnableIPv6": false,
-        "IPAM": {
-            "Driver": "default",
-            "Options": {},
-            "Config": [
-                {
-                    "Subnet": "172.18.0.0/16",
-                    "Gateway": "172.18.0.1"
-                }
-            ]
-        },
-        "Internal": false,
-        "Attachable": false,
-        "Ingress": false,
-        "ConfigFrom": {
-            "Network": ""
-        },
-        "ConfigOnly": false,
-        "Containers": {
-            "72f3cc63e3af9cc948ef419be52b44e9328c6df2d161b7e3e571c0d2af214a41": {
-                "Name": "test2",
-                "EndpointID": "757d4bbcf87342dbe8cb4e9fd1a4835c48dcfd350eaf90cb6c04d80c860fea53",
-                "MacAddress": "02:42:ac:12:00:03",
-                "IPv4Address": "172.18.0.3/16",
-                "IPv6Address": ""
-            },
-            "736b639eb8257af24e2139f64f797c7d523160414a0ab7e5ffffe51a2202b919": {
-                "Name": "test1",
-                "EndpointID": "69050e3ed2f755cbb2b12f1ee09f0db29721db5b0e62ab5228e91ef3c4821959",
-                "MacAddress": "02:42:ac:12:00:02",
-                "IPv4Address": "172.18.0.2/16",
-                "IPv6Address": ""
-            }
-        },
-        "Options": {},
-        "Labels": {}
-    }
-]
 [vagrant@localhost ~]$ docker network rm ffb207456d8fa8001f8862302463a9a6c4b1b
 Error response from daemon: error while removing network: network myBridge id ffb207456d8fa8001f8862302463a9a6c4b1b594361d37b54644b9fab277bbed has active endpoints
 [vagrant@localhost ~]$ docker network disconnect myBridge test1
