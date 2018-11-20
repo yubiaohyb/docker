@@ -49,3 +49,6 @@ $ docker network connect my-net my-nginx
 ```
 $ docker network disconnect my-net my-nginx
 ```
+#### IPv6的使用
+启用ipv6
+目前只支持yun'xing
