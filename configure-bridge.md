@@ -49,6 +49,7 @@ $ sudo iptables -P FORWARD ACCEPT
 #### 默认桥的使用
 由于默认桥被认为有缺陷，所以不推荐使用。
 
+#### [操作记录](https://github.com/yubiaohyb/docker/blob/master/bridge-verify.md)
 #### IPv6的使用
 ##### 启用ipv6
 目前只支持运行在linux系统上的docker守护进程<br>
