@@ -50,5 +50,15 @@ $ docker network connect my-net my-nginx
 $ docker network disconnect my-net my-nginx
 ```
 #### IPv6的使用
-启用ipv6
-目前只支持yun'xing
+##### 启用ipv6
+目前只支持运行在linux系统上的docker守护进程<br>
+编辑/etc/docker/daemon.json
+```
+{
+  "ipv6": true
+}
+```
+重载配置文件
+```
+$ systemctl reload docker
+```
