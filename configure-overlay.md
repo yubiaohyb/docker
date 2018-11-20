@@ -25,3 +25,21 @@ $ docker network create -d overlay my-overlay
 $ docker network create -d overlay --attachable my-attachable-overlay
 ```
 #### 加密overlay网络包
+默认所有的swarm服务管理包都会使用gcm模式下aes算法进行加密。swarm中的管理器节点每12小时轮播加密key。
+应用程序的数据通过在网络创建时添加--opt encrypted参数在vxlan层级开启IPSEC加密。加密是有性能损耗的，因此在加密前请做好评估。
+开启overlay网络加密后，docker会在所有调度节点间建立IPSEC隧道。这些隧道也会使用gcm模式下aes算法，管理器节点会每12小时轮播相应的key。
+
+> 不要添加windows节点到加密的overlay网络
+
+##### swarm模式overlay网络与独立容器
+```
+$ docker network create --opt encrypted --driver overlay --attachable my-attachable-multi-host-network
+```
+#### 自定义默认ingress网络
+#### 自定义docker_gwbridge接口
+
+### swarm服务配置
+
+
+### 独立容器配置
+
