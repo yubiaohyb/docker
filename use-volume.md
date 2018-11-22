@@ -1,4 +1,4 @@
-#### volume相较于bind mount的优点
+### volume相较于bind mount的优点
 * 备份/迁移简单
 * 可以使用docker的命令或api接口直接管理
 * Linux和Windows容器均可使用
@@ -7,7 +7,7 @@
 
 volume使用rprivate绑定传播，且对于volume来说传播绑定是不可配置的。
 
-#### -v与--mount的选择
+### -v与--mount的选择
 起初，-v or --volume用于独立容器，--mount用于swarm服务。
 Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充足易于理解。
 最大的不同点就是-v可以结合所有的选项属性一起使用，而--mount会将它们分开。
@@ -37,4 +37,35 @@ Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充�
 #### -v 与 --mount的行为区别
 相较于bind mount，-v和--mount可以使用所有的可选属性。
 swarm服务使用volume时，只能使用--mount。
+
+### volumes的创建管理
+创建
+```
+$ docker volume create my-vol
+```
+罗列
+```
+$ docker volume ls
+
+local               my-vol
+```
+查看
+```
+$ docker volume inspect my-vol
+[
+    {
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+```
+移除
+```
+$ docker volume rm my-vol
+```
+
 
