@@ -36,7 +36,7 @@ Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充�
 ```
 #### -v 与 --mount的行为区别
 相较于bind mount，-v和--mount可以使用所有的可选属性。
-swarm服务使用volume时，只能使用--mount。
+service使用volume时，只能使用--mount。
 
 ### volumes的创建管理
 创建
@@ -105,4 +105,21 @@ $ docker container stop devtest
 $ docker container rm devtest
 
 $ docker volume rm myvol2
+```
+### 使用volume启动service
+```
+$ docker service create -d \
+  --replicas=4 \
+  --name devtest-service \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+```
+docker service ps devtest-service检查服务运行
+```
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+4d7oz1j85wwn        devtest-service.1   nginx:latest        moby                Running             Running 14 seconds ago
+```
+移除服务
+```
+$ docker service rm devtest-service
 ```
