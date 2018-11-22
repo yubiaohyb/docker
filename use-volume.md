@@ -68,4 +68,41 @@ $ docker volume inspect my-vol
 $ docker volume rm my-vol
 ```
 
+### 使用volume启动容器
+--mount
+```
+$ docker run -d \
+  --name devtest \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+```
+-v
+```
+$ docker run -d \
+  --name devtest \
+  -v myvol2:/app \
+  nginx:latest
+```
+使用docker inspect devtest检查容器是否成功挂载
+```
+"Mounts": [
+    {
+        "Type": "volume",
+        "Name": "myvol2",
+        "Source": "/var/lib/docker/volumes/myvol2/_data",
+        "Destination": "/app",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+    }
+],
+```
+volume移除的正确顺序
+```
+$ docker container stop devtest
 
+$ docker container rm devtest
+
+$ docker volume rm myvol2
+```
