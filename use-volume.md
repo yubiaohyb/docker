@@ -34,3 +34,7 @@ Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充�
      --mount 'type=volume,src=<VOLUME-NAME>,dst=<CONTAINER-PATH>,volume-driver=local,volume-opt=type=nfs,volume-opt=device=<nfs-server>:<nfs-path>,"volume-opt=o=addr=<nfs-address>,vers=4,soft,timeo=180,bg,tcp,rw"'
 
 ```
+#### -v 与 --mount的行为区别
+相较于bind mount，-v和--mount可以使用所有的可选属性。
+swarm服务使用volume时，只能使用--mount。
+
