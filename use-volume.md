@@ -123,3 +123,6 @@ ID                  NAME                IMAGE               NODE                
 ```
 $ docker service rm devtest-service
 ```
+#### service语法区别
+只能使用--mount
+
