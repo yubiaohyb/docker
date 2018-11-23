@@ -183,6 +183,35 @@ $ docker run -d \
 ```
 如果驱动需要传递附加属性，则必须使用--mount。
 
+### 备份、重载或迁移volume数据
+volume适用于数据的备份、重载和迁移，因此可以启动一个新的容器使用 --volumes-from 挂载相应的volume。
 
+
+### 移除volume
+容器删除后，volume数据仍然存在于宿主系统当中。
+volume大概分为两种类型：
+* 命名volume
+* 匿名volume
+
+对于匿名volume，在使用volume启动容器时通过添加 --rm 参数，docker引擎会将容器实例连同匿名volume一起删除。
+```
+[vagrant@localhost ~]$ docker run -d --name demo --rm -v /testdir -v namedvolume:/namedir yubiaohyb/share-demo
+```
+删除所有闲置volume
+```
+[vagrant@localhost ~]$ docker volume ls
+DRIVER              VOLUME NAME
+local               namedvolume
+[vagrant@localhost ~]$ docker volume prune
+WARNING! This will remove all local volumes not used by at least one container.
+Are you sure you want to continue? [y/N] y
+Deleted Volumes:
+namedvolume
+
+Total reclaimed space: 0B
+[vagrant@localhost ~]$ docker volume ls
+DRIVER              VOLUME NAME
+[vagrant@localhost ~]$
+```
 
 
