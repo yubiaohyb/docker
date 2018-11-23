@@ -27,8 +27,8 @@ Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充�
   * --mount不支持使用 z 或 Z 属性改变selinux标签
   
   ### -v与--mount的行为区别
-  使用-v or --volume挂载文件或目录时，没有的话则直接在容器中创建，且创建的只会是目录；
-  使用--mount挂载一个不存在的目录或文件时，则会报错。
+  * 使用-v or --volume挂载文件或目录时，没有的话则直接在容器中创建，且创建的只会是目录；
+  * 使用--mount挂载一个不存在的目录或文件时，则会报错。
 ```
   [vagrant@localhost /]$ docker run -d --name demo --rm  -v type=bind,source=/aa,target=/bb yubiaohyb/share-demo
 ed2a6b84d22d81b1acceddcbcd969d16a5a032091ca1edcefb9af860cec9234b
