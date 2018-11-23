@@ -126,3 +126,39 @@ $ docker service rm devtest-service
 #### service语法区别
 只能使用--mount
 
+### 使用只读volume
+-- mount
+```
+$ docker run -d \
+  --name=nginxtest \
+  --mount source=nginx-vol,destination=/usr/share/nginx/html,readonly \
+  nginx:latest
+```
+-v
+```
+$ docker run -d \
+  --name=nginxtest \
+  -v nginx-vol:/usr/share/nginx/html:ro \
+  nginx:latest
+```
+docker inspect nginxtest查看效果
+```
+"Mounts": [
+    {
+        "Type": "volume",
+        "Name": "nginx-vol",
+        "Source": "/var/lib/docker/volumes/nginx-vol/_data",
+        "Destination": "/usr/share/nginx/html",
+        "Driver": "local",
+        "Mode": "",
+        "RW": false,
+        "Propagation": ""
+    }
+],
+```
+### 数据多机共享
+* 应用程序逻辑处理
+* 使用volume将底层数据访问抽象出来
+
+### 使用volume驱动
+创建volume时可以之id那个qu
