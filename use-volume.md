@@ -1,13 +1,13 @@
 * [volume相较于bind mount的优点](#volume相较于bind-mount的优点)
-* [-v与--mount的选择](#-v与--mount的选择-1)
-  * [-v与--mount的行为区别](#-v与--mount的行为区别-1)
+* [-v与--mount的选择](#-v与--mount的选择)
+  * [-v与--mount的行为区别](#-v与--mount的行为区别)
   
-* [volumes的创建管理](#volumes的创建管理-1)
-* [使用volume启动容器](#使用volume启动容器-1)
-* [使用只读volume](#使用只读volume-1)
-* [数据多机共享](#数据多机共享-1)
-* [使用volume驱动](#使用volume驱动-1)
-* [备份、重载或迁移volume数据](#备份、重载或迁移volume数据-1)
+* [volumes的创建管理](#volumes的创建管理)
+* [使用volume启动容器](#使用volume启动容器)
+* [使用只读volume](#使用只读volume)
+* [数据多机共享](#数据多机共享)
+* [使用volume驱动](#使用volume驱动)
+* [备份、重载或迁移volume数据](#备份、重载或迁移volume数据)
 
 ### volume相较于bind mount的优点
 * 备份/迁移简单
