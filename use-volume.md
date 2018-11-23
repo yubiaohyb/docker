@@ -1,4 +1,4 @@
-* [volume相较于bind mount的优点](#volume相较于bind mount的优点-1)
+* [volume相较于bind mount的优点](#volume相较于bind-mount的优点)
 * [-v与--mount的选择](#-v与--mount的选择-1)
   * [-v与--mount的行为区别](#-v与--mount的行为区别-1)
   
