@@ -7,7 +7,7 @@
 * [使用只读volume](#使用只读volume)
 * [数据多机共享](#数据多机共享)
 * [使用volume驱动](#使用volume驱动)
-* [备份、重载或迁移volume数据](#备份、重载或迁移volume数据)
+* [备份、重载或迁移volume数据](#备份重载或迁移volume数据)
 
 ### volume相较于bind mount的优点
 * 备份/迁移简单
