@@ -54,5 +54,30 @@ boot  etc  lib   lost+found  mnt    proc  run   srv   sys       usr  var
 docker: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /aa.
 See 'docker run --help'.
 ```
-  
-  
+#### 挂载到容器中非空目录
+原始目录中中内容会被遮盖掉，和volume略有不同。
+
+#### 只读挂载
+略
+
+#### 配置绑定传播
+默认volume和bind mount的绑定传播都是rprivate。仅限于linux主机上bind mount可配置。这个话题比较高级，一般用户基本用不到。
+
+
+#### 配置selinux标签
+如果使用的selinux，可以添加 z 或 Z，改变挂载到容器中的主机文件或目录的标签：
+* z - 指定文件或目录可以被多个容器所共享
+* Z - 指定文件或目录为当前容器私有
+
+使用时应非常小心。当对/usr或/home使用 Z 会导致主机无法操作，需要我们再重新手动设置标签。
+> service使用bind mount时，selinux标签配置会和 :ro 一样被忽略掉。
+
+#### macOS配置挂载一致性
+mac版docker使用 osxfs 共享文件或目录到linux虚拟机。
+默认共享完全一致。完全一致会导致有时会非常影响性能。
+Docker 17.05和更高版本引入选项，根据每个mount、每个容器调整一致性设置。
+值选项：
+consistent或default - 默认设置，完全一致
+delegated - 以容器中对mount视图为准，在容器中的变动宿主机
+
+
