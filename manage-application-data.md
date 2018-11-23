@@ -1,3 +1,11 @@
+* [宿主机存储方式](#宿主机存储方式)
+* [三者区别](#三者区别)
+* [载具类型的更多细节](#载具类型的更多细节)
+* [volumes适用场景](#volumes适用场景)
+* [bind mounts适用场景](#bind-mounts适用场景)
+* [tmpfs适用场景](#tmpfs适用场景)
+* [具体使用](#具体使用)
+---
 #### 宿主机存储方式
 * volumes
 * bind mounts
@@ -25,7 +33,7 @@ tmpfs - 略
 
 使用 -v 或 --volume 都可以挂载volumes或bind mounts，但语法略有不同。tmpfs可以使用 --tmpfs 进行挂在。但从17.06以后，推荐统一使用新标签 --mount。
 
-#### volumes使用场景
+#### volumes适用场景
 * 多容器数据共享
 * docker宿主机本身无法保证文件目录的完整性
 * 远程存储数据
@@ -44,5 +52,5 @@ tmpfs - 略
 * 将一个空的volume挂载到容器中一个已存在文件或子目录的目录下，则这些文件或子目录将会被拷贝到volume当中。同样启动容器时如果指定一个不存在的volume，那么回去创建一个空的volume。这对预置其他容器需要的数据来说非常有帮助。
 * 如果挂载一个bind mount或非空volume到容器中一个已存在文件或子目录的目录下，则相应的文件或子目录会被覆盖。被覆盖的内容并没有被移除或替换掉，只是在挂载期间无法访问到。
 
----
+#### 具体使用
 * [volume的使用](https://github.com/yubiaohyb/docker/blob/master/use-volume.md)
