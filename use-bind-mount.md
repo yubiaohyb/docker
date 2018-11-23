@@ -29,7 +29,7 @@ Docker 17.06开始，可以使用也鼓励使用--mount，因为语义明显充�
   ### -v与--mount的行为区别
   使用-v or --volume挂载文件或目录时，没有的话则直接在容器中创建，且创建的只会是目录；
   使用--mount挂载一个不存在的目录或文件时，则会报错。
-    ```
+```
   [vagrant@localhost /]$ docker run -d --name demo --rm  -v type=bind,source=/aa,target=/bb yubiaohyb/share-demo
 ed2a6b84d22d81b1acceddcbcd969d16a5a032091ca1edcefb9af860cec9234b
 [vagrant@localhost /]$ ls
@@ -53,6 +53,6 @@ boot  etc  lib   lost+found  mnt    proc  run   srv   sys       usr  var
   [vagrant@localhost /]$ docker run -d --name demo --rm  --mount type=bind,source=/aa,target=/bb yubiaohyb/share-demo
 docker: Error response from daemon: invalid mount config for type "bind": bind source path does not exist: /aa.
 See 'docker run --help'.
-  ```
+```
   
   
