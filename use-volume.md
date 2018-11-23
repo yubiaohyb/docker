@@ -161,4 +161,28 @@ docker inspect nginxtest查看效果
 * 使用volume将底层数据访问抽象出来
 
 ### 使用volume驱动
-创建volume时可以之id那个qu
+创建volume时可以指定驱动类型，以vieux/sshfs为例：
+插件预装
+```
+$ docker plugin install --grant-all-permissions vieux/sshfs
+```
+直接创建
+```
+$ docker volume create --driver vieux/sshfs \
+  -o sshcmd=test@node2:/home/test \
+  -o password=testpassword \
+  sshvolume
+```
+启动容器创建
+```
+$ docker run -d \
+  --name sshfs-container \
+  --volume-driver vieux/sshfs \
+  --mount src=sshvolume,target=/app,volume-opt=sshcmd=test@node2:/home/test,volume-opt=password=testpassword \
+  nginx:latest
+```
+如果驱动需要传递附加属性，则必须使用--mount。
+
+
+
+
