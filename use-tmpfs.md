@@ -52,3 +52,17 @@ root@1aa715663c1b:/#
 $ docker container stop tmptest
 $ docker container rm tmptest
 ```
+
+### 设置tmpfs可选项
+tmpfs支持两个配置可选项，但仅限于 --mount 使用。
+* tmpfs-size - 设置tmpfs挂载的字节大小。默认没有限制。
+* tmpfs-mode - 设置tmpfs读写属性。默认值为1777或全局可写。
+```
+docker run -d \
+  -it \
+  --name tmptest \
+  --mount type=tmpfs,destination=/app,tmpfs-mode=1770 \
+  nginx:latest
+```
+
+
