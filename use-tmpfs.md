@@ -42,4 +42,13 @@ huangyubiaodeMacBook-Pro:share-demo huangyubiao$ docker inspect demo
       "/test": ""
   },
 ...
+huangyubiaodeMacBook-Pro:share-demo huangyubiao$ docker exec -it demo /bin/bash
+root@1aa715663c1b:/# ls
+bin  boot  dev  etc  home  lib  lib64  log  media  mnt  opt  proc  root  run  sbin  share-demo.jar  srv  sys  test  tmp  usr  var
+root@1aa715663c1b:/# 
+```
+删除
+```
+$ docker container stop tmptest
+$ docker container rm tmptest
 ```
