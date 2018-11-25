@@ -38,9 +38,8 @@ $ docker run -d \
 ```
 huangyubiaodeMacBook-Pro:share-demo huangyubiao$ docker inspect demo
 ...
-            "Tmpfs": {
-                "/test": ""
-            },
-
+  "Tmpfs": {
+      "/test": ""
+  },
 ...
 ```
