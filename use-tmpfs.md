@@ -27,4 +27,20 @@ huangyubiaodeMacBook-Pro:share-demo huangyubiao$ docker run -d --name demo --rm 
 1aa715663c1bc98ef2253f80941a6daa993050ae273ccf14ec66e436bb5a3e7e
 ```
 --mount
+```
+$ docker run -d \
+  -it \
+  --name tmptest \
+  --mount type=tmpfs,destination=/app \
+  nginx:latest
+```
+查看
+```
+huangyubiaodeMacBook-Pro:share-demo huangyubiao$ docker inspect demo
+...
+            "Tmpfs": {
+                "/test": ""
+            },
 
+...
+```
