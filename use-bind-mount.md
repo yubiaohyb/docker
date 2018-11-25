@@ -73,11 +73,11 @@ See 'docker run --help'.
 > service使用bind mount时，selinux标签配置会和 :ro 一样被忽略掉。
 
 #### macOS配置挂载一致性
-mac版docker使用 osxfs 共享文件或目录到linux虚拟机。
-默认共享完全一致。完全一致会导致有时会非常影响性能。
-Docker 17.05和更高版本引入选项，根据每个mount、每个容器调整一致性设置。
+mac版docker使用 osxfs 共享文件或目录到linux虚拟机。<br>
+默认共享完全一致。完全一致会导致有时会非常影响性能。<br>
+Docker 17.05和更高版本引入选项，根据每个mount、每个容器调整一致性设置。<br>
 值选项：
-consistent或default - 默认设置，完全一致
-delegated - 以容器中对mount视图为准，在容器中的变动宿主机
+* consistent或default - 默认设置，完全一致
+* delegated - 以容器中对mount视图为准，在容器中的变动宿主机
 
 
