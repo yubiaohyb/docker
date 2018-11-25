@@ -78,6 +78,7 @@ mac版docker使用 osxfs 共享文件或目录到linux虚拟机。<br>
 Docker 17.05和更高版本引入选项，根据每个mount、每个容器调整一致性设置。<br>
 值选项：
 * consistent或default - 默认设置，完全一致
-* delegated - 以容器中对mount视图为准，在容器中的变动宿主机
+* delegated - 以容器中运行时对mount的视图为准，宿主机看到在容器中的变动可能会有延迟
+* cached - 以宿主机对mout的视图为准，容器观察到宿主机上对mount的变动可能会存在延迟
 
 
