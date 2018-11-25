@@ -1,3 +1,9 @@
+* [缺点](#缺点)
+* [--tmpfs与--mount的选择](#--tmpfs与--mount的选择)
+* [--tmpfs与--mount的行为区别](#--tmpfs与--mount的行为区别)
+* [tmpfs的使用](#tmpfs的使用)
+* [设置tmpfs可选项](#设置tmpfs可选项)
+---
 ### 缺点
 * 无法容器间共享数据
 * 仅限于linux系统可用
