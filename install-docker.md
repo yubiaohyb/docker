@@ -310,4 +310,38 @@ $ sudo yum install docker-ce-<VERSION STRING>
 ```
 #### [查看验证启动成功](#docker安装)
 运行docker version命令，正常输出即可
+```
+[vagrant@localhost ~]$ docker version
+Client:
+ Version:           18.09.0
+ API version:       1.39
+ Go version:        go1.10.4
+ Git commit:        4d60db4
+ Built:             Wed Nov  7 00:48:22 2018
+ OS/Arch:           linux/amd64
+ Experimental:      false
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.39/version: dial unix /var/run/docker.sock: connect: permission denied
+[vagrant@localhost ~]$
+```
+```
+[vagrant@localhost ~]$ sudo docker version
+Client:
+ Version:           18.09.0
+ API version:       1.39
+ Go version:        go1.10.4
+ Git commit:        4d60db4
+ Built:             Wed Nov  7 00:48:22 2018
+ OS/Arch:           linux/amd64
+ Experimental:      false
 
+Server: Docker Engine - Community
+ Engine:
+  Version:          18.09.0
+  API version:      1.39 (minimum version 1.12)
+  Go version:       go1.10.4
+  Git commit:       4d60db4
+  Built:            Wed Nov  7 00:19:08 2018
+  OS/Arch:          linux/amd64
+  Experimental:     false
+[vagrant@localhost ~]$
+```
