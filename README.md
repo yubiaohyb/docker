@@ -1,5 +1,5 @@
-### 学习地址
-[入门](https://docs.docker.com/get-started/)
+### 官方学习
+[入口](https://docs.docker.com/get-started/)
 
 ### 学习路径
 * [安装docker](https://github.com/yubiaohyb/docker/blob/master/install-docker.md)
