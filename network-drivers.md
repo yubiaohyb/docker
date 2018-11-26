@@ -1,3 +1,6 @@
+## 网络驱动
+
+
 docker的网络子系统采用了插件化设计，使用驱动可以进行设置。默认提供了几款驱动，以提供核心的的网络功能。
 另外，在docker ee中借助UCP提供了两个特性：
 * HTTP routing mesh - 允许多个服务共享ip和端口，结合主机名和端口进行路由
@@ -20,14 +23,5 @@ Network plugins|安装使用第三方网络插件，这些插件可以从docker 
 * macvlan适用于VM设置迁移或者需要像直连网络的物理设备的场景
 * Network pluginsk可以实现docker与特定的网络栈集成
 
-#### 具体配置
-* [配置桥接网络](https://github.com/yubiaohyb/docker/blob/master/configure-bridge.md)
-* [配置overlay网络](https://github.com/yubiaohyb/docker/blob/master/configure-overlay.md)
-* 配置host网络
-* 配置MACvlan网络
-* [关闭容器网络](https://github.com/yubiaohyb/docker/blob/master/disable-networking.md)
-* 网络指南
-* 守护进程和容器配置
-* 历史遗留
 
 
