@@ -1,4 +1,16 @@
-### 卸载老版本docker
+## docker安装
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+
+
+### [卸载老版本docker](#docker安装)
 ```
 [vagrant@localhost ~]$  sudo yum remove docker \
 >                   docker-client \
@@ -24,7 +36,7 @@ No Match for argument: docker-engine
 No Packages marked for removal
 [vagrant@localhost ~]$
 ```
-### 预装依赖包
+### [预装依赖包](#docker安装)
 ```
 [vagrant@localhost ~]$ sudo yum install -y yum-utils \
 >   device-mapper-persistent-data \
@@ -130,7 +142,7 @@ Dependency Installed:
 Complete!
 [vagrant@localhost ~]$
 ```
-### yum添加docker稳定版本库
+### [yum添加docker稳定版本库](#docker安装)
 ```
 [vagrant@localhost ~]$ sudo yum-config-manager \
 >     --add-repo \
@@ -141,7 +153,7 @@ grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yu
 repo saved to /etc/yum.repos.d/docker-ce.repo
 ```
 
-### 查看所有可装版本
+### [查看所有可装版本](#docker安装)
 ```
 [vagrant@localhost ~]$ yum list docker-ce --showduplicates | sort -r
 
@@ -169,7 +181,7 @@ Determining fastest mirrors
 Available Packages
 [vagrant@localhost ~]$
 ```
-### 安装docker
+### [安装docker](#docker安装)
 ```
 [vagrant@localhost ~]$ sudo yum install docker-ce
 Loaded plugins: fastestmirror
@@ -284,12 +296,12 @@ Dependency Installed:
 Complete!
 [vagrant@localhost ~]$
 ```
-### 安装指定版本docker
+### [安装指定版本docker](#docker安装)
 ```
 $ sudo yum install docker-ce-<VERSION STRING>
 ```
 
-### 启动docker
+### [启动docker](#docker安装)
 ```
 [vagrant@localhost ~]$ sudo systemctl start docker
 [vagrant@localhost ~]$ ps ax | grep docker
@@ -298,4 +310,4 @@ $ sudo yum install docker-ce-<VERSION STRING>
  2942 pts/0    S+     0:00 grep --color=auto docker
 [vagrant@localhost ~]$
 ```
-### 查看验证启动成功
+### [查看验证启动成功](#docker安装)
