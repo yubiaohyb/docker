@@ -8,6 +8,9 @@
 * [应用数据管理](https://github.com/yubiaohyb/docker/blob/master/manage-app-data.md)
 
 ---
+### 待组织
+* [添加用户到docker分组](https://github.com/yubiaohyb/docker/blob/master/adjust-user-group.md)
+
 docker运行实例镜像
 ```
 [vagrant@localhost ~]$ sudo docker run hello-world
