@@ -1,6 +1,6 @@
 ### 官方学习
-[入口](https://docs.docker.com/get-started/)
-[Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java/)
+* [入口](https://docs.docker.com/get-started/)
+* [Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java/)
 
 ### 学习路径
 * [安装docker](https://github.com/yubiaohyb/docker/blob/master/install-docker.md)
