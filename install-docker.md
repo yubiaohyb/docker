@@ -309,3 +309,5 @@ $ sudo yum install docker-ce-<VERSION STRING>
 [vagrant@localhost ~]$
 ```
 #### [查看验证启动成功](#docker安装)
+运行docker version命令，正常输出即可
+
