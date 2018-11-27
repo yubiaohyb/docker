@@ -26,3 +26,6 @@ dockerd --debug \
 ### 守护进程的目录
 * 默认： /var/lib/docker
 * 可以使用 data-root 另外指定
+
+### 排错
+[查看](https://docs.docker.com/config/daemon/#troubleshoot-the-daemon)
