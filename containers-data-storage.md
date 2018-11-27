@@ -69,5 +69,13 @@ copy-on-write的执行，不同存储驱动的执行情况不同。
 * 其他
 
 #### 查看驱动信息
+```
+$ docker info
 
->
+Containers: 0
+Images: 0
+Storage Driver: overlay2
+ Backing Filesystem: xfs
+<output truncated>
+```
+> 切换存储驱动，原有的镜像和容器将不可访问，如果再改回来，则后来切换后拉取的镜像及容器将不可访问。
